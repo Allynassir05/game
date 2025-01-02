@@ -71,4 +71,48 @@ case'x'
 }
 void algorithm()
 {
-
+int prevX=tailX[0];
+int prevY=tailY[0];
+int prev2X,prev2Y;
+tail[0]=x;
+tail[0]=y;
+for(int i=1;i<ntail;i++){
+prev2X=tailX[i];
+prev2Y=tailY[i];
+tailX[i]=prevX;
+tailY[i]=prevY;
+prevX=prev2X;
+prevY=prev2Y;
+}
+switch(dir){
+case LEFT:
+X--;
+break;
+case RIGHT:
+X++;
+break;
+case DOWN:
+y++;
+break;
+default:
+break;
+}
+if (x>=width)x=0;else if(x<0)x=height-1;
+if (y>=width)y=0;else if(y<0)y=height-1;
+for (int i=0;i<ntail;i++)
+if(tailX[i]==x&&tailY[i]==y)gameover=true;
+if(x==fruitX&&Y==fruitY){score+=10;
+fruitX=rand()%width;
+fruitY=rand()%height;
+nTail==;
+}
+}
+int main()
+{
+setup();
+while(!gameover){
+Draw ();
+input();
+algorithm();
+}
+return 0;}
